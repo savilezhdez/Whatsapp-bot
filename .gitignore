@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# WhatsApp session data (will be regenerated when running)
+sessions/
+.wwebjs_cache/
+.wwebjs_auth/
+
+# Chat session files (cleared on bot shutdown)
+chat-sessions.json
+test-chat-sessions.json
+
+# Download instructions (not needed in GitHub)
+INSTRUCCIONES-DESCARGA.md
+
+# Environment variables (if you add any)
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

@@ -1,0 +1,265 @@
+═══════════════════════════════════════════════════════════════
+  GUÍA PASO A PASO: SUBIR EL BOT DE WHATSAPP A GITHUB
+═══════════════════════════════════════════════════════════════
+
+📝 ANTES DE COMENZAR
+═══════════════════════════════════════════════════════════════
+
+1. Asegúrate de tener Git instalado
+   - Abre CMD y escribe: git --version
+   - Si no está instalado, descarga de: https://git-scm.com/
+
+2. Crea una cuenta en GitHub (si no tienes)
+   - Ve a: https://github.com/
+   - Haz clic en "Sign up"
+   - Completa el registro
+
+═══════════════════════════════════════════════════════════════
+  PASO 1: CREAR REPOSITORIO EN GITHUB
+═══════════════════════════════════════════════════════════════
+
+1. Ve a GitHub.com e inicia sesión
+
+2. Haz clic en el botón "+" arriba a la derecha
+   - Selecciona "New repository"
+
+3. Llena la información:
+   - Repository name: whatsapp-bot-semjo
+   - Description: Bot de WhatsApp para Grupo Semjo
+   - Selecciona: Public (para que otros puedan verlo)
+   - NO marques "Initialize with README" (ya tienes uno)
+   - Haz clic en "Create repository"
+
+4. GitHub te mostrará una página con instrucciones
+   - ¡NO LA CIERRES! La usarás en el siguiente paso
+
+═══════════════════════════════════════════════════════════════
+  PASO 2: PREPARAR TU PROYECTO LOCAL
+═══════════════════════════════════════════════════════════════
+
+1. Abre CMD (Símbolo del sistema)
+   - Presiona Windows + R
+   - Escribe: cmd
+   - Presiona Enter
+
+2. Navega a la carpeta del proyecto:
+
+   cd C:\Users\Usuario\whatsapp-bot
+
+3. Verifica que estás en la carpeta correcta:
+
+   dir
+
+   Deberías ver: bot.js, package.json, etc.
+
+═══════════════════════════════════════════════════════════════
+  PASO 3: INICIALIZAR GIT Y SUBIR
+═══════════════════════════════════════════════════════════════
+
+Copia y pega estos comandos UNO POR UNO en CMD:
+
+1. Inicializar Git:
+   ────────────────────────────────────────────────────────────
+   git init
+   ────────────────────────────────────────────────────────────
+
+2. Agregar todos los archivos:
+   ────────────────────────────────────────────────────────────
+   git add .
+   ────────────────────────────────────────────────────────────
+
+3. Crear el primer commit:
+   ────────────────────────────────────────────────────────────
+   git commit -m "Initial commit: Bot de WhatsApp para Grupo Semjo"
+   ────────────────────────────────────────────────────────────
+
+4. Renombrar la rama a main:
+   ────────────────────────────────────────────────────────────
+   git branch -M main
+   ────────────────────────────────────────────────────────────
+
+5. Conectar con GitHub:
+   ────────────────────────────────────────────────────────────
+   git remote add origin https://github.com/TU-USUARIO/whatsapp-bot-semjo.git
+   ────────────────────────────────────────────────────────────
+
+   ⚠️ IMPORTANTE: Reemplaza "TU-USUARIO" con tu nombre de usuario de GitHub
+
+   Ejemplo: Si tu usuario es "juanperez", sería:
+   git remote add origin https://github.com/juanperez/whatsapp-bot-semjo.git
+
+6. Subir al repositorio:
+   ────────────────────────────────────────────────────────────
+   git push -u origin main
+   ────────────────────────────────────────────────────────────
+
+7. Si te pide usuario y contraseña:
+   - Usuario: Tu nombre de usuario de GitHub
+   - Contraseña: Tu token de acceso personal (ver abajo si no tienes)
+
+═══════════════════════════════════════════════════════════════
+  ¿TE PIDE CONTRASEÑA? CREAR TOKEN DE ACCESO
+═══════════════════════════════════════════════════════════════
+
+GitHub ya no acepta contraseñas normales. Necesitas un token:
+
+1. Ve a GitHub.com → Inicia sesión
+
+2. Click en tu foto de perfil (arriba derecha)
+   → Settings
+
+3. En el menú izquierdo, hasta abajo:
+   → Developer settings
+
+4. → Personal access tokens
+   → Tokens (classic)
+
+5. → Generate new token
+   → Generate new token (classic)
+
+6. Llena:
+   - Note: "Token para WhatsApp Bot"
+   - Expiration: 90 days (o lo que prefieras)
+   - Marca: ✅ repo (esto marcará todo lo de repo)
+
+7. → Generate token
+
+8. ⚠️ COPIA EL TOKEN Y GUÁRDALO
+   - Se verá algo así: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxx
+   - ¡Solo se muestra UNA VEZ!
+   - Úsalo como contraseña cuando Git te lo pida
+
+═══════════════════════════════════════════════════════════════
+  VERIFICAR QUE TODO ESTÁ EN GITHUB
+═══════════════════════════════════════════════════════════════
+
+1. Ve a:
+   https://github.com/TU-USUARIO/whatsapp-bot-semjo
+   (reemplaza TU-USUARIO)
+
+2. Deberías ver todos tus archivos:
+   ✅ bot.js
+   ✅ test-offline.js
+   ✅ package.json
+   ✅ README.md
+   ✅ GUIA-USO.md
+   ✅ INICIAR-BOT.bat
+   ✅ INICIAR-PRUEBA.bat
+   ✅ .gitignore
+
+3. NO deberías ver (están en .gitignore):
+   ❌ node_modules/
+   ❌ sessions/
+   ❌ chat-sessions.json
+   ❌ INSTRUCCIONES-DESCARGA.md (este archivo solo para ti)
+
+═══════════════════════════════════════════════════════════════
+  HACER CAMBIOS Y ACTUALIZAR GITHUB (DESPUÉS)
+═══════════════════════════════════════════════════════════════
+
+Cuando hagas cambios al código y quieras subirlos:
+
+1. Navega a la carpeta:
+   ────────────────────────────────────────────────────────────
+   cd C:\Users\Usuario\whatsapp-bot
+   ────────────────────────────────────────────────────────────
+
+2. Agregar los cambios:
+   ────────────────────────────────────────────────────────────
+   git add .
+   ────────────────────────────────────────────────────────────
+
+3. Crear commit con descripción:
+   ────────────────────────────────────────────────────────────
+   git commit -m "Descripción de lo que cambiaste"
+   ────────────────────────────────────────────────────────────
+
+   Ejemplos:
+   - git commit -m "Agregado nuevo menú de contacto"
+   - git commit -m "Corregido error en navegación"
+   - git commit -m "Actualizado mensaje de bienvenida"
+
+4. Subir a GitHub:
+   ────────────────────────────────────────────────────────────
+   git push
+   ────────────────────────────────────────────────────────────
+
+═══════════════════════════════════════════════════════════════
+  COMPARTIR EL PROYECTO
+═══════════════════════════════════════════════════════════════
+
+Comparte este enlace con quien quieras:
+
+https://github.com/TU-USUARIO/whatsapp-bot-semjo
+
+Ellos podrán:
+- Ver el código
+- Descargar el proyecto
+- Usar el bot siguiendo INSTRUCCIONES-DESCARGA.md
+
+═══════════════════════════════════════════════════════════════
+  SOLUCIÓN DE PROBLEMAS
+═══════════════════════════════════════════════════════════════
+
+❌ "git no se reconoce como comando"
+   → Instala Git desde: https://git-scm.com/
+   → Reinicia CMD después de instalar
+
+❌ "fatal: remote origin already exists"
+   → Ejecuta: git remote remove origin
+   → Luego vuelve a hacer el paso 5
+
+❌ "Permission denied"
+   → Revisa que el token tenga permisos de "repo"
+   → Genera un nuevo token si es necesario
+
+❌ "Updates were rejected"
+   → Ejecuta: git pull origin main
+   → Luego: git push origin main
+
+❌ Error con archivos grandes
+   → Verifica .gitignore
+   → No subas node_modules/ ni sessions/
+
+═══════════════════════════════════════════════════════════════
+  COMANDOS ÚTILES DE GIT
+═══════════════════════════════════════════════════════════════
+
+Ver estado de archivos:
+   git status
+
+Ver historial de commits:
+   git log
+
+Descargar cambios de GitHub:
+   git pull
+
+Ver cambios antes de commit:
+   git diff
+
+═══════════════════════════════════════════════════════════════
+  RESUMEN RÁPIDO (PRIMERA VEZ)
+═══════════════════════════════════════════════════════════════
+
+cd C:\Users\Usuario\whatsapp-bot
+git init
+git add .
+git commit -m "Initial commit: Bot de WhatsApp para Grupo Semjo"
+git branch -M main
+git remote add origin https://github.com/TU-USUARIO/whatsapp-bot-semjo.git
+git push -u origin main
+
+═══════════════════════════════════════════════════════════════
+  RESUMEN RÁPIDO (ACTUALIZACIONES)
+═══════════════════════════════════════════════════════════════
+
+cd C:\Users\Usuario\whatsapp-bot
+git add .
+git commit -m "Descripción del cambio"
+git push
+
+═══════════════════════════════════════════════════════════════
+
+¡Listo! Tu bot de WhatsApp está en GitHub y listo para compartir.
+
+═══════════════════════════════════════════════════════════════
