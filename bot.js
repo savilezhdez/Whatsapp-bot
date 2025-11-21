@@ -421,15 +421,33 @@ class WhatsAppBot {
         }
 
         // Ignore messages from saved contacts (only respond to unknown numbers)
+        // IMPORTANT: This is READ-ONLY - we only check, never modify or delete contacts
         try {
             const contact = await message.getContact();
-            if (contact && contact.isMyContact) {
-                console.log(`[${new Date().toLocaleTimeString()}] Ignored message from saved contact: ${contact.name || contact.pushname || chatId}`);
-                return;
+
+            // Extra safety: verify contact object exists and has the property we need
+            if (!contact) {
+                console.log(`[${new Date().toLocaleTimeString()}] Contact info not available, treating as unknown number`);
+                // Continue to respond - better safe than sorry
+            } else if (typeof contact.isMyContact !== 'boolean') {
+                console.log(`[${new Date().toLocaleTimeString()}] Contact.isMyContact property not available, treating as unknown number`);
+                // Continue to respond - property might not be loaded yet
+            } else if (contact.isMyContact === true) {
+                // Contact is saved - ignore message
+                const contactName = contact.name || contact.pushname || 'Unknown';
+                console.log(`[${new Date().toLocaleTimeString()}] ✋ Ignored message from SAVED contact: "${contactName}" (${chatId})`);
+                console.log(`   → Contact filter is working correctly (READ-ONLY check)`);
+                return; // Don't respond to saved contacts
+            } else {
+                // Contact is NOT saved - this is an unknown number, respond to it
+                console.log(`[${new Date().toLocaleTimeString()}] ✅ Unknown number detected, bot will respond`);
             }
         } catch (error) {
-            // If we can't check contact, continue (better to respond than to ignore)
-            console.log(`[${new Date().toLocaleTimeString()}] Could not check contact status, continuing...`);
+            // If ANY error occurs checking contact status, respond anyway
+            console.log(`[${new Date().toLocaleTimeString()}] ⚠️ Error checking contact: ${error.message}`);
+            console.log(`   → Continuing to respond (fail-safe mode)`);
+            console.log(`   → NOTE: Bot ONLY reads contacts, NEVER modifies or deletes them`);
+            // Continue execution - better to respond than to miss a potential customer
         }
 
         // Log incoming message for debugging
