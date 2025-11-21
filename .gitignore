@@ -14,6 +14,7 @@ test-chat-sessions.json
 INSTRUCCIONES-DESCARGA.md
 COMO-SUBIR-A-GITHUB.txt
 ACTUALIZAR-GITHUB.txt
+BORRAR-ARCHIVO-GITHUB.txt
 
 # Environment variables (if you add any)
 .env
