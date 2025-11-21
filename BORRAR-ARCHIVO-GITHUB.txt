@@ -1,0 +1,60 @@
+═══════════════════════════════════════════════════════════════
+  COMANDOS PARA BORRAR EL ARCHIVO DE GITHUB
+═══════════════════════════════════════════════════════════════
+
+El archivo COMO-SUBIR-A-GITHUB.txt ya se subió por error.
+Estos comandos lo borrarán de GitHub (pero se quedará en tu PC).
+
+═══════════════════════════════════════════════════════════════
+  COPIA Y PEGA ESTOS COMANDOS EN CMD
+═══════════════════════════════════════════════════════════════
+
+cd C:\Users\Usuario\whatsapp-bot
+git add .
+git commit -m "Actualización: Archivos de tutorial excluidos de GitHub"
+git push
+
+═══════════════════════════════════════════════════════════════
+  QUÉ HACE ESTO
+═══════════════════════════════════════════════════════════════
+
+1. Ya actualicé el .gitignore para ignorar:
+   - INSTRUCCIONES-DESCARGA.md
+   - COMO-SUBIR-A-GITHUB.txt
+   - ACTUALIZAR-GITHUB.txt
+
+2. Ya eliminé COMO-SUBIR-A-GITHUB.txt del seguimiento de Git
+
+3. Cuando ejecutes los comandos arriba:
+   ✅ Se subirá el .gitignore actualizado
+   ✅ Se borrará COMO-SUBIR-A-GITHUB.txt de GitHub
+   ✅ El archivo seguirá en tu PC (solo tú lo verás)
+
+═══════════════════════════════════════════════════════════════
+  ARCHIVOS QUE QUEDARÁN SOLO EN TU PC
+═══════════════════════════════════════════════════════════════
+
+Estos archivos NO estarán en GitHub (solo en tu computadora):
+
+❌ INSTRUCCIONES-DESCARGA.md     (para dar a otros)
+❌ COMO-SUBIR-A-GITHUB.txt        (tu guía de subida)
+❌ ACTUALIZAR-GITHUB.txt          (tu guía de actualización)
+❌ BORRAR-ARCHIVO-GITHUB.txt      (este archivo)
+❌ sessions/                      (tu sesión de WhatsApp)
+❌ chat-sessions.json             (historial de chats)
+❌ node_modules/                  (dependencias)
+
+═══════════════════════════════════════════════════════════════
+  DESPUÉS DE EJECUTAR LOS COMANDOS
+═══════════════════════════════════════════════════════════════
+
+Verifica en GitHub:
+1. Ve a: https://github.com/TU-USUARIO/whatsapp-bot-semjo
+2. COMO-SUBIR-A-GITHUB.txt ya NO debe aparecer ✅
+3. Los demás archivos del bot SÍ deben estar ahí
+
+═══════════════════════════════════════════════════════════════
+
+¡Ejecuta los comandos y listo! 🚀
+
+═══════════════════════════════════════════════════════════════

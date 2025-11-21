@@ -420,6 +420,18 @@ class WhatsAppBot {
             return;
         }
 
+        // Ignore messages from saved contacts (only respond to unknown numbers)
+        try {
+            const contact = await message.getContact();
+            if (contact && contact.isMyContact) {
+                console.log(`[${new Date().toLocaleTimeString()}] Ignored message from saved contact: ${contact.name || contact.pushname || chatId}`);
+                return;
+            }
+        } catch (error) {
+            // If we can't check contact, continue (better to respond than to ignore)
+            console.log(`[${new Date().toLocaleTimeString()}] Could not check contact status, continuing...`);
+        }
+
         // Log incoming message for debugging
         console.log(`[${new Date().toLocaleTimeString()}] Message from ${chatId}: "${message.body}"`);
 

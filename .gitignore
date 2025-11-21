@@ -10,8 +10,10 @@ sessions/
 chat-sessions.json
 test-chat-sessions.json
 
-# Download instructions (not needed in GitHub)
+# Tutorial files (only for local use, not for GitHub)
 INSTRUCCIONES-DESCARGA.md
+COMO-SUBIR-A-GITHUB.txt
+ACTUALIZAR-GITHUB.txt
 
 # Environment variables (if you add any)
 .env
